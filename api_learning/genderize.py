@@ -6,7 +6,7 @@ class Genderize(object):
 	""" This API don't need specificy API KEY """
 	def __init__(self, name):
 		self.response = None
-		self.name = name
+		self.name = name.decode('latin-1').encode('utf-8')
 		self.link = "https://api.genderize.io/?name={}" .format(self.name)
 		self.__get()
 
@@ -17,4 +17,4 @@ class Genderize(object):
 			print "Raised a exception as %s" % e
 
 if __name__ == '__main__':
-	print Genderize('Reni').response
+	print Genderize('Álvaro').response

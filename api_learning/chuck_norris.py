@@ -29,7 +29,7 @@ class Norris(object):
         if len(self.tags2add) > 1:
             self.tags = '&' + self.tags2add
             if len(self.tags2exclude) > 1:
-                self.tags = '&' + self.tags2exclude
+                self.tags += '&' + self.tags2exclude
         return None
 
     def __get(self):

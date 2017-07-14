@@ -3,6 +3,7 @@
 import requests
 import json
 
+
 class Weather(object):
     def __init__(self, city_name='Osasco', country_code=''):
         self.api_key = "################" # Your api key of OpenWeather here
@@ -14,7 +15,7 @@ class Weather(object):
         try:
             req = requests.get(self.link).text
             response = json.dumps(json.loads(req))
-            self.f  = open('resp.txt', 'w')
+            self.f = open('resp.txt', 'w')
             json.dump(response, self.f)
         except Exception as e:
             print e

@@ -17,4 +17,4 @@ class Genderize(object):
 			print "Raised a exception as %s" % e
 
 if __name__ == '__main__':
-	print Genderize('Álvaro').response
+	print Genderize('Reni').response

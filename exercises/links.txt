@@ -1,0 +1,20 @@
+<a class="gb1" href="https://www.google.com.br/imghp?hl=pt-BR&amp;tab=wi">Imagens</a>
+<a class="gb1" href="https://maps.google.com.br/maps?hl=pt-BR&amp;tab=wl">Maps</a>
+<a class="gb1" href="https://play.google.com/?hl=pt-BR&amp;tab=w8">Play</a>
+<a class="gb1" href="https://www.youtube.com/?gl=BR&amp;tab=w1">YouTube</a>
+<a class="gb1" href="https://news.google.com.br/nwshp?hl=pt-BR&amp;tab=wn">Notícias</a>
+<a class="gb1" href="https://mail.google.com/mail/?tab=wm">Gmail</a>
+<a class="gb1" href="https://drive.google.com/?tab=wo">Drive</a>
+<a class="gb1" href="https://www.google.com.br/intl/pt-BR/options/" style="text-decoration:none"><u>Mais</u> »</a>
+<a class="gb4" href="http://www.google.com.br/history/optout?hl=pt-BR">Histórico da Web</a>
+<a class="gb4" href="/preferences?hl=pt-BR">Configurações</a>
+<a class="gb4" href="https://accounts.google.com/ServiceLogin?hl=pt-BR&amp;passive=true&amp;continue=https://www.google.com.br/%3Fgws_rd%3Dcr,ssl%26ei%3D2sBrWbvtE4GFwQSHl7CYBw" id="gb_70" target="_top">Fazer login</a>
+<a href="/advanced_search?hl=pt&amp;authuser=0">Pesquisa avançada</a>
+<a href="/language_tools?hl=pt&amp;authuser=0">Ferramentas de idioma</a>
+<a href="/intl/pt-BR/ads/">Soluções de publicidade</a>
+<a href="/services/">Soluções empresariais</a>
+<a href="https://plus.google.com/107558061013247958406" rel="publisher">+Google</a>
+<a href="/intl/pt-BR/about.html">Sobre o Google</a>
+<a href="https://www.google.com.br/setprefdomain?prefdom=US&amp;sig=__sma8jSwTZJZwLL1oGX1nbJb7x8g%3D" id="fehl">Google.com</a>
+<a href="/intl/pt-BR/policies/privacy/">Privacidade</a>
+<a href="/intl/pt-BR/policies/terms/">Termos</a>

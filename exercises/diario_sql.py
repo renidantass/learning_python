@@ -7,7 +7,7 @@ import os
 import time
 
 
-class Diario:
+class Diary:
     def __init__(self):
         self.check()
         self.write()
@@ -21,7 +21,7 @@ class Diario:
     def check(self):
         if not os.path.exists('diario.db'):
             self.create()
-    
+
     def write(self):
 		try:
 			text = raw_input("Hoje meu dia: ")
@@ -34,4 +34,4 @@ class Diario:
 		except Exception as e:
 			raise Exception(e)
 
-d = Diario()
+d = Diary()

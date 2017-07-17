@@ -4,7 +4,6 @@
 """
 
 
-
 def move_list(args, times):
     for _ in range(times):
         tmp = args.pop()

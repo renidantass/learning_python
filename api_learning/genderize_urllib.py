@@ -18,4 +18,4 @@ class Genderize(object):
 if __name__ == '__main__':
     name = input("Type your name: ")
     gender, percentage = Genderize(name).get_info()
-    print("Your gender are probability [{:.2f}%%||{:.2f}%%]: {}" .format(percentage, percentage * 100, gender))
+    print("Your gender is probably [{:.2f}%%||{:.2f}%%]: {}" .format(percentage, percentage * 100, gender))

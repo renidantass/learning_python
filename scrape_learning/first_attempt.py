@@ -63,9 +63,10 @@ class BloggerScrapper(object):
                 except TypeError:
                     pass
                 post_text = [text.text.strip() for text in  post_content.findAll('div', {'style': 'text-align: justify;'})]
-                return title_post, post_text, post_image
+                yield title_post, post_text, post_image
         except Exception as e:
             raise Exception(e)
 
 bs = BloggerScrapper(r'http://josegvieira.blogspot.com.br/search?max-results=55')
-bs.get_posts(save=1)
+for post in bs.get_posts(save=1):
+	print(post)

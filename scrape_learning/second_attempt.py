@@ -23,4 +23,5 @@ class TPirateBay:
             raise Exception(e)
 
 if __name__ == '__main__':
-    print(TPirateBay('game of thrones').search()) # Just a little example
+    term = input("Term: ")
+    print(TPirateBay(term).search()) # Just a little example

@@ -2,6 +2,8 @@
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 from random import randint
+from sys import argv
+
 
 class TPirateBay:
     """ Make a search on thepiratebay and return a link for something """
@@ -23,5 +25,5 @@ class TPirateBay:
             raise Exception(e)
 
 if __name__ == '__main__':
-    term = input("Term: ")
+    term = ' '.join(argv[1::]) if len(argv) > 1 else exit('no term found')
     print(TPirateBay(term).search()) # Just a little example

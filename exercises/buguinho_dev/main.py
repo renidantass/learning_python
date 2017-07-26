@@ -15,12 +15,18 @@ def listar_opcoes():
 def menu():
     tmp = ''
     while tmp != 'exit':
+        v = Validar()
         listar_opcoes()
-        tmp = int(raw_input('Banco <<< '))
+        try:
+            tmp = int(raw_input('Banco <<< '))
+        except ValueError:
+            print 'Digite apenas números'
         if tmp == 1:
-            pass
+            agencia = v.agencia(raw_input('Digite o número da agência: '))
+            conta = v.conta(raw_input('Digite o número da conta: '))
+            with Client(agencia, conta) as cliente:
+                cliente.consultar_saldo()
         elif tmp == 2:
-            v = Validar()
             nome = v.nome(raw_input('Digite o seu nome completo: '))
             senha = v.senha(raw_input('Digite a senha: '))
             agencia = v.agencia(raw_input('Digite o número da agência: '))

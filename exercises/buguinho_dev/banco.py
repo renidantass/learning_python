@@ -6,7 +6,9 @@ import sqlite3
 
 
 class Client(object):
-    def __init__(self, agencia='', conta='', senha=''):
+    def __init__(self, agencia='', conta=''):
+        self.agencia = agencia
+        self.conta = conta
         self.__conn = sqlite3.connect('banco.db')
         self.__cur = self.__conn.cursor()
         self.__checar_db()
@@ -44,13 +46,18 @@ class Client(object):
         try:
             sql = '''SELECT * FROM contas WHERE agencia = {} AND conta = {}'''.format(self.agencia, self.conta)
             r =  self.__cur.execute(sql).fetchall()
-            return r if r else 0
+            return r[0] if r else 0
         except Exception as e:
             raise Exception(e)
 
     def __enter__(self):
         """ Método para usá-lo com with """
-        return self
+        try:
+            print '\n{} entrou'.format(self.__user[1])
+        except Exception as e:
+            pass
+        finally:
+            return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """ Mesma coisa do acima :p """
@@ -71,7 +78,7 @@ class Client(object):
 
     def consultar_saldo(self):
         """ Método para consultar o saldo do usuário """
-        print "Informação do usuário: {}".format(self.__user)
+        print "Saldo do usuário: {}".format(self.__user[5])
 
     def emitir_extrato(self):
         """ Emite o extrato do usuário se o mesmo quiser """

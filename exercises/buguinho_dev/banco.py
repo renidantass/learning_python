@@ -74,6 +74,7 @@ class Client(object):
         senha = raw_input('Digite a sua senha: ')
         while senha != __senha:
             print 'Senha incorreta!'
+            senha = raw_input('Digite a sua senha: ')
 
     def criar_usuario(self, nome, senha, agencia, conta):
         """ Método para  criar um usuário na tabela contas do banco.db """

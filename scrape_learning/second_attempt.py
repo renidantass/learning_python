@@ -64,11 +64,13 @@ def menu():
     db = TDataBase()
     choose = int(raw_input("[1] - Search link on db\n[2] - Search link on ThePirateBay\n[3] - Quit\n:"))
     if choose == 1:
-        term = ' '.join(argv[1:]) if len(argv) > 1 else exit('no term found')
+        # term = ' '.join(argv[1:]) if len(argv) > 1 else exit('no term found')
+        term = raw_input("Termo de pesquisa: ")
         link = db.retrieve_link(term)[0]
         print "{} = {} (already stored)".format(link[1], link[2])
     elif choose == 2:
-        term = ' '.join(argv[1:]) if len(argv) > 1 else exit('no term found')
+        # term = ' '.join(argv[1:]) if len(argv) > 1 else exit('no term found')
+        term = raw_input("Termo de pesquisa: ")
         (name, link) = found = TPirateBay(term).search()
         db.store_link(name, link)
         print '{} = {} (was stored)'.format(name, link)

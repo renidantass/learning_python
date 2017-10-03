@@ -21,20 +21,23 @@ class Scrapper(object):
             Get trends on r7
         """
         soup = self.soup
-        featured = soup.find('div', {'class': 'box rw guerra'})
-        link = featured.find('div', {'class': 'guerra-background'}).a['href'].strip()
-        print 'Link da notícia:', link
-        content = featured.find('div', {'class': 'guerra-content'})
-        headline = content.find('div', {'class': 'guerra-headline'})
-        label = headline.find('span', {'class': 'guerra-label'}).text.strip()
-        print 'Label:', label
-        title = headline.h1.text.strip()
-        print 'Título:', title
-        list = content.find('ul', {'class': 'guerra-list'})
-        items = [li.text.strip() for li in list.findAll('li')]
-        print 'Itens:'
-        for item in items:
-            print '\t - ' + item
+        try:
+            featured = soup.find('div', {'class': 'box rw guerra'})
+            link = featured.find('div', {'class': 'guerra-background'}).a['href'].strip()
+            print 'Link da notícia:', link
+            content = featured.find('div', {'class': 'guerra-content'})
+            headline = content.find('div', {'class': 'guerra-headline'})
+            label = headline.find('span', {'class': 'guerra-label'}).text.strip()
+            print 'Label:', label
+            title = headline.h1.text.strip()
+            print 'Título:', title
+            list = content.find('ul', {'class': 'guerra-list'})
+            items = [li.text.strip() for li in list.findAll('li')]
+            print 'Itens:'
+            for item in items:
+                print '\t - ' + item
+        except Exception as e:
+            raise e
 
 scrap = Scrapper()
 print scrap.get_featured()

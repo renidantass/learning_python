@@ -14,7 +14,7 @@ class Weather(object):
     """
     def __init__(self):
         self._key = "5b318944fb61cfbae7a2dc89f20b9d5d"
-        self._city, self._country = self.__get_location()
+        self._city, self._country = self.get_location()
         self._link = "http://api.openweathermap.org/data/2.5/weather?q={},\
 {}&APPID={}&units=metric".format(self._city, self._country, self._key)
 
@@ -25,7 +25,7 @@ class Weather(object):
         except Exception as e:
             raise e
 
-    def __get_location(self):
+    def get_location(self):
         try:
             r = requests.get('https://api.ipdata.co').json()
             return r['city'].title(), r['country_code'].lower()
@@ -41,26 +41,26 @@ class WWindow(Tk):
         super().__init__()
         self.wm_title("Clima")
         self.geometry('200x85+0+0')
-        self.attributes("-type", "splash")
-        self.attributes('-topmost', 0)
+        self.attributes("-type", "splash", '-topmost', 0)
         self.mn, self.crrnt, self.mx = StringVar(), StringVar(), StringVar()
         self.lh = StringVar()
-        self.minT = Label(textvariable=self.mn)
-        self.minT.pack()
-        self.current = Label(textvariable=self.crrnt)
-        self.current.pack()
-        self.maxT = Label(textvariable=self.mx)
-        self.maxT.pack()
+        self.minT = Label(textvariable=self.mn).pack()
+        self.current = Label(textvariable=self.crrnt).pack()
+        self.maxT = Label(textvariable=self.mx).pack()
         self.last_update = Label(textvariable=self.lh).pack()
         self.get_climate()
 
     def get_climate(self):
-        mn, current, mx = Weather().get()
-        self.mn.set("Temp min: {}".format(mn))
-        self.crrnt.set("Temperatura atual: {}".format(current))
-        self.mx.set("Temp max: {}".format(mx))
+        try:
+            mn, current, mx = Weather().get()
+        except KeyboardInterrupt:
+            print("Saindo...\n")
+            exit(0)
+        self.mn.set("Temp min: {}º".format(mn))
+        self.crrnt.set("Temperatura atual: {}º".format(current))
+        self.mx.set("Temp max: {}º".format(mx))
         self.lh.set("Última atualização: {}".format(datetime.now().strftime("%H:%M:%S")))
-        self.after(250, self.get_climate)
+        self.after(60000*45, self.get_climate)
 
 main =  WWindow()
 main.mainloop()

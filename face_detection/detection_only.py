@@ -15,7 +15,7 @@ def detect_face(img):
     # Converting image to gray
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # Detecting faces on image with grayscale
-    faces = face_classifier.detectMultiScale(gray, 1.2, 5)
+    faces = face_classifier.detectMultiScale(gray, 1.3, 5)
     # If faces then...
     if faces is not None:
         for (x,y,w,h) in faces:
@@ -27,4 +27,4 @@ def detect_face(img):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-detect_face('test1.jpg')
+detect_face('test5.jpg')

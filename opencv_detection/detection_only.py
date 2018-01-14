@@ -1,7 +1,10 @@
-from glos import *
 import cv2
 import os
 import numpy as np
+
+TEST_FOLDER = os.path.join(os.getcwd(), 'test-data')
+CASCADES = os.path.join(os.getcwd(), 'opencv-files')
+PEOPLE = os.path.join(os.getcwd(), 'training-data')
 
 
 
@@ -16,9 +19,10 @@ def detect_face(img):
     faces = face_classifier.detectMultiScale(gray, 1.3, 5)
     # If faces then...
     if faces is not None:
-        for (x,y,w,h) in faces:
+        for idx, (x,y,w,h) in enumerate(faces):
             cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
             cv2.putText(img, '<Rosto da pessoa', (x+w+10, y+h//2), cv2.FONT_HERSHEY_SIMPLEX, .70, (255, 255, 255))
+            yield gray[y:y+w, x:x+h], faces[idx]
     
     # Show image
     cv2.imshow('image', img)

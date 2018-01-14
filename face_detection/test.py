@@ -83,7 +83,7 @@ def prepare_training_data(data_folder_path=""):
 
 
 print("Colocando óleo no pulmão e desejando a morte...")
-faces,labels = prepare_training_data('training_data')
+faces, labels = prepare_training_data('training_data')
 print("Ops, acho que isso é errado, pera, vou começar a treinar os rostos")
 
 print("Total de rostos detectados:", len(faces))
